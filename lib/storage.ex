@@ -10,7 +10,7 @@ defmodule Storage do
       # Start the endpoint when the application starts
       supervisor(Storage.Endpoint, []),
       # Start the Ecto repository
-      # supervisor(Storage.Repo, []),
+      supervisor(Storage.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(Storage.Worker, [arg1, arg2, arg3]),
     ]
