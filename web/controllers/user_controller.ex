@@ -32,7 +32,7 @@ defmodule Storage.UserController do
     render conn, "new.html", changeset: changeset
   end
 
-  defp authenticate(conn, _opts) do
+  def authenticate(conn, _opts) do
     if conn.assigns.current_user do
       conn
     else

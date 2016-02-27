@@ -13,7 +13,7 @@
 
   <body>
     <header class="header">
-      <%= render "_navbar.html" %>
+      <%= render "_navbar.html", conn: @conn, current_user: @current_user %>
     </header>
     <div class="container">
 
