@@ -1,0 +1,28 @@
+<h2>Listing location users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Location</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for location_user <- @location_users do %>
+    <tr>
+      <td><%= location_user.user_id %></td>
+      <td><%= location_user.location_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: location_user_path(@conn, :show, location_user), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: location_user_path(@conn, :edit, location_user), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: location_user_path(@conn, :delete, location_user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New location user", to: location_user_path(@conn, :new) %>

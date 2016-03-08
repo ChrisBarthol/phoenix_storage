@@ -1,0 +1,18 @@
+<h2>Show location user</h2>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @location_user.user_id %>
+  </li>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @location_user.location_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: location_user_path(@conn, :edit, @location_user) %>
+<%= link "Back", to: location_user_path(@conn, :index) %>

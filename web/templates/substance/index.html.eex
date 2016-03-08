@@ -1,0 +1,30 @@
+<h2>Listing substances</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Density</th>
+      <th>Caloric denisty</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for substance <- @substances do %>
+    <tr>
+      <td><%= substance.name %></td>
+      <td><%= substance.density %></td>
+      <td><%= substance.caloric_denisty %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: substance_path(@conn, :show, substance), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: substance_path(@conn, :edit, substance), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: substance_path(@conn, :delete, substance), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New substance", to: substance_path(@conn, :new) %>

@@ -1,0 +1,6 @@
+<h2>New location user</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: location_user_path(@conn, :create) %>
+
+<%= link "Back", to: location_user_path(@conn, :index) %>

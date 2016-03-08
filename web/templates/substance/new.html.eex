@@ -1,0 +1,6 @@
+<h2>New substance</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: substance_path(@conn, :create) %>
+
+<%= link "Back", to: substance_path(@conn, :index) %>

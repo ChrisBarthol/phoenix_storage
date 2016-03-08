@@ -1,0 +1,23 @@
+<h2>Show substance</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @substance.name %>
+  </li>
+
+  <li>
+    <strong>Density:</strong>
+    <%= @substance.density %>
+  </li>
+
+  <li>
+    <strong>Caloric denisty:</strong>
+    <%= @substance.caloric_denisty %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: substance_path(@conn, :edit, @substance) %>
+<%= link "Back", to: substance_path(@conn, :index) %>

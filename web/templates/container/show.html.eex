@@ -1,0 +1,38 @@
+<h2>Show container</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @container.name %>
+  </li>
+
+  <li>
+    <strong>Full amount:</strong>
+    <%= @container.full_amount %>
+  </li>
+
+  <li>
+    <strong>Warning amount:</strong>
+    <%= @container.warning_amount %>
+  </li>
+
+  <li>
+    <strong>Last filled:</strong>
+    <%= @container.last_filled %>
+  </li>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @container.location_id %>
+  </li>
+
+  <li>
+    <strong>Substance:</strong>
+    <%= @container.substance_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: container_path(@conn, :edit, @container) %>
+<%= link "Back", to: container_path(@conn, :index) %>

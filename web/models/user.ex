@@ -6,6 +6,7 @@ defmodule Storage.User do
     field :email, :string
     field :password, :string, virtual: true
     field :password_hash, :string
+    has_many :location_users, Storage.LocationUser
 
     timestamps
   end

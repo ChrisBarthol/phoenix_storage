@@ -1,0 +1,23 @@
+<h2>Show log</h2>
+
+<ul>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @log.time %>
+  </li>
+
+  <li>
+    <strong>Raw value:</strong>
+    <%= @log.raw_value %>
+  </li>
+
+  <li>
+    <strong>Container:</strong>
+    <%= @log.container_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: log_path(@conn, :edit, @log) %>
+<%= link "Back", to: log_path(@conn, :index) %>

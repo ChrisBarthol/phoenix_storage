@@ -1,6 +1,6 @@
 defmodule Storage.UserController do
   use Storage.Web, :controller
-  plug :authenticate when action in [:index, :show]
+  plug :authenticate_user when action in [:index, :show]
 
   alias Storage.User
 
@@ -30,16 +30,5 @@ defmodule Storage.UserController do
   def new(conn, _params) do
     changeset = User.changeset(%User{})
     render conn, "new.html", changeset: changeset
-  end
-
-  def authenticate(conn, _opts) do
-    if conn.assigns.current_user do
-      conn
-    else
-      conn
-      |> put_flash(:error, "You must be logged in to access that page")
-      |> redirect(to: page_path(conn, :index))
-      |> halt()
-    end
   end
 end
