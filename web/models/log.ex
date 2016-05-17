@@ -5,8 +5,6 @@ defmodule Storage.Log do
     belongs_to :substance, Storage.Substance
     belongs_to :container, Storage.Container
 
-    # field :substance_id, references(:substances)
-    # field :container_id, references(:containers)
     field :raw_value, :float
 
     timestamps

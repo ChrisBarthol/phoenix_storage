@@ -5,9 +5,6 @@ defmodule Storage.LocationUser do
     belongs_to :locations, Storage.Location
     belongs_to :users, Storage.User
 
-    # field :location_id, references(:locations)
-    # field :user_id, references(:users)
-
     timestamps
   end
 
