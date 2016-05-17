@@ -4,7 +4,7 @@ defmodule Storage.RawData do
   schema "raw_data" do
     field :raw_value, :float
     field :container_id, :id
-    field :created_at, :date
+    # field :created_at, :date
 
     timestamps
   end
