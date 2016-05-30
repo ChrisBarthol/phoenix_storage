@@ -20,6 +20,8 @@ defmodule Storage.Router do
     get "/", PageController, :index
     resources "/users", UserController, only: [:index, :show, :new, :create]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/containers", ContainerController, only: [:new, :show]
+    resources "/substances", SubstanceController, only: [:new, :show, :create]
   end
 
   # Other scopes may use custom stacks.
