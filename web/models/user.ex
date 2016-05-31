@@ -6,6 +6,8 @@ defmodule Storage.User do
     field :email, :string
     field :password, :string, virtual: true
     field :password_hash, :string
+    has_many :container_users, Storage.ContainerUser
+    has_many :containers, through: [:container_users, :containers]
 
     timestamps
   end
@@ -14,7 +16,6 @@ defmodule Storage.User do
     model
     |> cast(params, ~w(name email), [])
     |> validate_length(:name, min: 1, max: 20)
-
   end
 
   def registration_changeset(model, params) do

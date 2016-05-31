@@ -1,6 +1,6 @@
 defmodule Storage.UserController do
   use Storage.Web, :controller
-  plug :authenticate when action in [:index, :show]
+  plug :authenticate_user when action in [:index, :show]
 
   alias Storage.User
 

@@ -36,6 +36,7 @@ defmodule Storage.Web do
 
       import Storage.Router.Helpers
       import Storage.Gettext
+      import Storage.Auth, only: [authenticate_user: 2]
     end
   end
 
@@ -58,6 +59,8 @@ defmodule Storage.Web do
   def router do
     quote do
       use Phoenix.Router
+
+      import Storage.Auth, only: [authenticate_user: 2]
     end
   end
 
