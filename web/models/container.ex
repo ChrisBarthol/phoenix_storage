@@ -23,4 +23,10 @@ defmodule Storage.Container do
     |> cast(params, @required_fields, @optional_fields)
   end
 
+  def create_changeset(model, params) do
+    model
+    |> changset(params)
+    |> validate_length(:name, min: 1, max: 100)
+  end
+
 end
