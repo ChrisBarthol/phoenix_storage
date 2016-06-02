@@ -5,7 +5,7 @@ defmodule Storage.Container do
   @optional_fields ~w(full_amount warning_amount)
 
   schema "containers" do
-    belongs_to :locations, Storage.Location
+    belongs_to :location, Storage.Location
     belongs_to :substance, Storage.Substance
     has_many :logs, Storage.Log
     has_many :container_users, Storage.ContainerUser
@@ -25,7 +25,7 @@ defmodule Storage.Container do
 
   def create_changeset(model, params) do
     model
-    |> changset(params)
+    |> changeset(params)
     |> validate_length(:name, min: 1, max: 100)
   end
 

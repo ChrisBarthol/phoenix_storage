@@ -1,8 +1,11 @@
 defmodule Storage.ContainerController do
   use Storage.Web, :controller
 
+  alias Storage.Container
+
   def index(conn, _params) do
-    render conn, "index.html"
+    containers = Repo.all(Storage.Container)
+    render conn, "index.html", containers: containers
   end
 
   def show(conn, %{"id" => id}) do

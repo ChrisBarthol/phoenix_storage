@@ -25,7 +25,7 @@ defmodule Storage.Router do
   scope "/manage", Storage do
     pipe_through [:browser, :authenticate_user]
 
-    resources "/containers", ContainerController, only: [:new, :show]
+    resources "/containers", ContainerController, only: [:index, :new, :show]
     resources "/substances", SubstanceController, only: [:new, :show, :create]
   end
 end
