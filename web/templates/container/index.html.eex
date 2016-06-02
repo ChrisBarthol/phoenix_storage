@@ -3,7 +3,7 @@
 <table class="table">
   <%= for container <- @containers do %>
     <tr>
-      <td>(<%= @container.id %>) - <%= @container.email %></td>
+      <td>(<%= container.id %>) - <%= container.name %></td>
       <td><%= link "View", to: container_path(@conn, :show, container.id) %></td>
     </tr>
   <% end %>

@@ -1,0 +1,23 @@
+<h1> New Container <h1>
+
+<%= if @changeset.action do %>
+  <div class="alert alert-danger">
+    <p> I'm sorry, something went wrong!</p>
+  </div>
+<% end %>
+
+<%= form_for @changeset, container_path(@conn, :create), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :name, placeholder: "Name", class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+  <div class="form-group">
+    <%= text_input f, :full_amount, placeholder: "Full Amount", class: "form-control" %>
+    <%= error_tag f, :full_amount %>
+  </div>
+  <div class="form-group">
+    <%= text_input f, :warning_amount, placeholder: "Warning Amount", class: "form-control" %>
+    <%= error_tag f, :warning_amount %>
+  </div>
+  <%= submit "Create Container", class: "btn btn-primary" %>
+<% end %>
