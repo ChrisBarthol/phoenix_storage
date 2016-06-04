@@ -14,8 +14,12 @@ defmodule Storage.ContainerController do
     render conn, "show.html", container: container
   end
 
-  def create(conn, %{"container"=>container_params}) do
-    changeset = Container.create_changeset(%Container{}, container_params)
+  def create(conn, %{"container"=>container_params}, user) do
+    changeset =
+      user
+      |> build_assoc(:container_users)
+      |> Container.changset(container_params)
+
     case Repo.insert(changeset) do
       {:ok, container} ->
         conn
@@ -26,8 +30,20 @@ defmodule Storage.ContainerController do
     end
   end
 
-  def new(conn, _params) do
-    changeset = Container.changeset(%Container{})
+  def new(conn, _params, user) do
+    changeset =
+      user
+      |> build_assoc(:container_users)
+      |> Container.changeset()
     render conn, "new.html", changeset: changeset
+  end
+
+  def action(conn, _) do
+    apply(__MODULE__, action_name(conn),
+      [conn, conn.params, conn.assigns.current_user])
+  end
+
+  defp user_containers(user) do
+    assoc(user, :containers)
   end
 end
