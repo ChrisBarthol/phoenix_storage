@@ -8,4 +8,9 @@ defmodule Storage.ContainerUser do
     timestamps
   end
 
+  def changeset(model, params \\ :empty) do
+    model
+    |> cast(params, [], [])
+  end
+
 end

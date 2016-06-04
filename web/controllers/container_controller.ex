@@ -2,6 +2,7 @@ defmodule Storage.ContainerController do
   use Storage.Web, :controller
 
   alias Storage.Container
+  alias Storage.ContainerUser
 
   def index(conn, _params) do
     containers = Repo.all(Storage.Container)
