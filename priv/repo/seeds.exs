@@ -43,6 +43,7 @@ def populate_substances(n) do
       density: 1,
       caloric_censity: 3
   })
+  populate_substances(n-1)
 end
 
 def populate_containers(n) do
@@ -52,6 +53,7 @@ def populate_containers(n) do
       full_amount: 100,
       warning_amount: 30
   })
+  populate_containers(n-1)
 end
 populate_users(10)
 populate_locations(4)
